@@ -5,7 +5,7 @@ import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import _ from "lodash";
 import { emitter } from "../../utils/emitter";
 
-class ModalUserEdit extends Component {
+class ModalEditUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +25,7 @@ class ModalUserEdit extends Component {
       this.setState({
         id: user.id,
         email: user.email,
-        password: "password",
+        password: "Opps, CANNOT SHOW YOUR PASSWORD",
         firstName: user.firstName,
         lastName: user.lastName,
         address: user.address,
@@ -36,6 +36,13 @@ class ModalUserEdit extends Component {
 
   toggle = () => {
     this.props.toggleFromParent();
+  };
+
+  handleShowHidePassword = () => {
+    this.setState({
+      showPassword: !this.state.showPassword,
+    });
+    //console.log(this.state.showPassword);
   };
 
   handleOnChangeInput = (event, id) => {
@@ -89,27 +96,36 @@ class ModalUserEdit extends Component {
         <ModalBody>
           <div className="modal-user-body">
             <div className="input-container">
-              <label>Email</label>
+              <label>Email:</label>
               <input
                 type="text"
-                values={this.state.email}
+                value={this.state.email}
                 onChange={(event) => {
                   this.handleOnChangeInput(event, "email");
                 }}
               />
             </div>
-            <div className="input-container">
-              <label>Password</label>
+            <div className="input-container input-password-only">
+              <label>Password:</label>
               <input
-                type="password"
+                type={this.state.showPassword ? "text" : "password"}
                 value={this.state.password}
                 onChange={(event) => {
                   this.handleOnChangeInput(event, "password");
                 }}
               />
+              <span onClick={() => this.handleShowHidePassword()}>
+                <i
+                  className={
+                    this.state.showPassword
+                      ? "fas fa-eye show-password"
+                      : "fas fa-eye-slash show-password"
+                  }
+                ></i>
+              </span>
             </div>
             <div className="input-container">
-              <label>Firstname</label>
+              <label>Firstname:</label>
               <input
                 type="text"
                 onChange={(event) => {
@@ -119,7 +135,7 @@ class ModalUserEdit extends Component {
               />
             </div>
             <div className="input-container">
-              <label>Lastname</label>
+              <label>Lastname:</label>
               <input
                 type="text"
                 onChange={(event) => {
@@ -129,7 +145,7 @@ class ModalUserEdit extends Component {
               />
             </div>
             <div className="input-container max-width-input">
-              <label>Address</label>
+              <label>Address:</label>
               <input
                 type="text"
                 onChange={(event) => {
@@ -173,4 +189,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalUserEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalEditUser);

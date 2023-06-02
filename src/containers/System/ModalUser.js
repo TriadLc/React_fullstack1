@@ -110,7 +110,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event, "email");
                 }}
-                values={this.state.email}
+                value={this.state.email}
               />
             </div>
             <div className="input-container">
@@ -120,7 +120,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event, "password");
                 }}
-                values={this.state.password}
+                value={this.state.password}
               />
             </div>
             <div className="input-container">
@@ -130,7 +130,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event, "firstName");
                 }}
-                values={this.state.firstName}
+                value={this.state.firstName}
               />
             </div>
             <div className="input-container">
@@ -140,7 +140,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event, "lastName");
                 }}
-                values={this.state.lastName}
+                value={this.state.lastName}
               />
             </div>
             <div className="input-container max-width-input">
@@ -150,7 +150,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event, "address");
                 }}
-                values={this.state.address}
+                value={this.state.address}
               />
             </div>
           </div>

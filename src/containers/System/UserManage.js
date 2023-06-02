@@ -9,7 +9,7 @@ import {
   editUserService,
 } from "../../services/userService";
 import ModalUser from "./ModalUser";
-import ModalUserEdit from "./ModalUserEdit";
+import ModalEditUser from "./ModalEditUser";
 import { emitter } from "../../utils/emitter";
 
 class UserManage extends Component {
@@ -129,7 +129,7 @@ class UserManage extends Component {
           createNewUser={this.createNewUser}
         />
         {this.state.isOpenModalEditUser && (
-          <ModalUserEdit
+          <ModalEditUser
             isOpen={this.state.isOpenModalEditUser}
             toggleFromParent={this.toggleUserEditModal}
             currentUser={this.state.userEdit}
