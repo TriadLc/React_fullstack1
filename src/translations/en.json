@@ -50,6 +50,7 @@
     "position": "Position",
     "role-id": "Role",
     "image": "Image avatar",
+    "btn-upload-image": "Upload image",
     "btn-save": "Save user"
   }
 }
