@@ -3,7 +3,7 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserManage.scss";
 import {
-  getAllUsers,
+  getAllUsersService,
   createNewUserService,
   deleteUserService,
   editUserService,
@@ -24,11 +24,11 @@ class UserManage extends Component {
   }
 
   async componentDidMount() {
-    await this.getAllUsersFromReact();
+    await this.getAllUsersServiceFromReact();
   }
 
-  getAllUsersFromReact = async () => {
-    let response = await getAllUsers("ALL");
+  getAllUsersServiceFromReact = async () => {
+    let response = await getAllUsersService("ALL");
     if (response && response.errCode === 0) {
       this.setState({
         arrUsers: response.users,
@@ -60,7 +60,7 @@ class UserManage extends Component {
       if (response && response.errCode !== 0) {
         alert(response.errMessage);
       } else {
-        await this.getAllUsersFromReact();
+        await this.getAllUsersServiceFromReact();
         this.setState({
           isOpenModalUser: false,
         });
@@ -77,7 +77,7 @@ class UserManage extends Component {
     try {
       let res = await deleteUserService(user.id);
       if (res && res.errCode === 0) {
-        await this.getAllUsersFromReact();
+        await this.getAllUsersServiceFromReact();
       } else {
         alert(res.errMessage);
       }
@@ -101,7 +101,7 @@ class UserManage extends Component {
         this.setState({
           isOpenModalEditUser: false,
         });
-        await this.getAllUsersFromReact();
+        await this.getAllUsersServiceFromReact();
       } else {
         alert(res.errCode);
       }

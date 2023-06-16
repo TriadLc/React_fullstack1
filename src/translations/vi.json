@@ -52,6 +52,8 @@
     "role-id": "Vai trò",
     "image": "Ảnh đại diện",
     "btn-upload-image": "Tải ảnh lên",
-    "btn-save": "Lưu user"
+    "btn-save": "Lưu user",
+    "btn-edit": "Lưu thay đổi",
+    "btn-actions": "Hành động"
   }
 }

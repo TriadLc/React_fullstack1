@@ -51,6 +51,8 @@
     "role-id": "Role",
     "image": "Image avatar",
     "btn-upload-image": "Upload image",
-    "btn-save": "Save user"
+    "btn-save": "Save user",
+    "btn-edit": "Edit user",
+    "btn-actions": "Actions"
   }
 }

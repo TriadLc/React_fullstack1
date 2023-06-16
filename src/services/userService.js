@@ -1,10 +1,10 @@
 import axios from "../axios";
 
-const handleLoginApi = (userEmail, userPassword) => {
+const handleLoginApiService = (userEmail, userPassword) => {
   return axios.post("api/login", { email: userEmail, password: userPassword });
 };
 
-const getAllUsers = (inputId) => {
+const getAllUsersService = (inputId) => {
   //temple string
   return axios.get(`/api/get-all-users?id=${inputId}`);
 };
@@ -31,8 +31,8 @@ const getAllCodeService = (inputType) => {
 };
 
 export {
-  handleLoginApi,
-  getAllUsers,
+  handleLoginApiService,
+  getAllUsersService,
   createNewUserService,
   deleteUserService,
   editUserService,

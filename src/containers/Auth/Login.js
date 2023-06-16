@@ -7,7 +7,7 @@ import * as actions from "../../store/actions";
 import "./Login.scss";
 import { FormattedMessage } from "react-intl";
 // import { userService } from '../../services/userService';
-import { handleLoginApi } from "../../services/userService";
+import { handleLoginApiService } from "../../services/userService";
 
 class Login extends Component {
   constructor(props) {
@@ -37,7 +37,10 @@ class Login extends Component {
       errMessage: "",
     });
     try {
-      let data = await handleLoginApi(this.state.username, this.state.password);
+      let data = await handleLoginApiService(
+        this.state.username,
+        this.state.password
+      );
       if (data && data.errCode !== 0) {
         this.setState({
           errMessage: data.message,
