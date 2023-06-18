@@ -50,7 +50,7 @@ class UserRedux extends Component {
       let arrGenders = this.props.genderRedux;
       this.setState({
         genderArr: arrGenders,
-        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : "",
+        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].keyMap : "",
       });
     }
 
@@ -59,7 +59,7 @@ class UserRedux extends Component {
       this.setState({
         positionArr: arrPositions,
         position:
-          arrPositions && arrPositions.length > 0 ? arrPositions[0].key : "",
+          arrPositions && arrPositions.length > 0 ? arrPositions[0].keyMap : "",
       });
     }
 
@@ -67,7 +67,7 @@ class UserRedux extends Component {
       let arrRoles = this.props.roleRedux;
       this.setState({
         roleArr: arrRoles,
-        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
+        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].keyMap : "",
       });
     }
 
@@ -83,10 +83,10 @@ class UserRedux extends Component {
         lastName: "",
         phoneNumber: "",
         address: "",
-        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : "",
+        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].keyMap : "",
         position:
-          arrPositions && arrPositions.length > 0 ? arrPositions[0].key : "",
-        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
+          arrPositions && arrPositions.length > 0 ? arrPositions[0].keyMap : "",
+        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].keyMap : "",
         avatar: "",
         action: CRUD_ACTIONS.CREATE,
         previewImgURL: "",
@@ -297,7 +297,6 @@ class UserRedux extends Component {
                     }}
                   />
                 </div>
-
                 <div className="col-7 mt-3">
                   <label>
                     <FormattedMessage id="manage-user.address" />
@@ -324,7 +323,7 @@ class UserRedux extends Component {
                     }}
                   />
                 </div>
-                <div className="col-4 mt-3">
+                <div className="col-3 mt-3">
                   <label>
                     <FormattedMessage id="manage-user.gender" />
                   </label>
@@ -339,7 +338,7 @@ class UserRedux extends Component {
                       genders.length > 0 &&
                       genders.map((item, index) => {
                         return (
-                          <option key={index} value={item.key}>
+                          <option key={index} value={item.keyMap}>
                             {language === LANGUAGES.VI
                               ? item.valueVi
                               : item.valueEn}
@@ -348,7 +347,7 @@ class UserRedux extends Component {
                       })}
                   </select>
                 </div>
-                <div className="col-4 mt-3">
+                <div className="col-3 mt-3">
                   <label>
                     <FormattedMessage id="manage-user.position" />
                   </label>
@@ -363,7 +362,7 @@ class UserRedux extends Component {
                       positions.length > 0 &&
                       positions.map((item, index) => {
                         return (
-                          <option key={index} value={item.key}>
+                          <option key={index} value={item.keyMap}>
                             {language === LANGUAGES.VI
                               ? item.valueVi
                               : item.valueEn}
@@ -372,7 +371,7 @@ class UserRedux extends Component {
                       })}
                   </select>
                 </div>
-                <div className="col-4 mt-3">
+                <div className="col-3 mt-3">
                   <label>
                     <FormattedMessage id="manage-user.role-id" />
                   </label>
@@ -387,7 +386,7 @@ class UserRedux extends Component {
                       roles.length > 0 &&
                       roles.map((item, index) => {
                         return (
-                          <option key={index} value={item.key}>
+                          <option key={index} value={item.keyMap}>
                             {language === LANGUAGES.VI
                               ? item.valueVi
                               : item.valueEn}
@@ -396,7 +395,7 @@ class UserRedux extends Component {
                       })}
                   </select>
                 </div>
-                <div className="col-10 my-3">
+                <div className="col-10 my-5">
                   <button
                     className={
                       this.state.action === CRUD_ACTIONS.EDIT

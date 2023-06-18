@@ -146,7 +146,72 @@ class UserManage extends Component {
           </button>
         </div>
         <div className="users-table mt-3 mx-1">
-          <table id="customers">
+          <table id="customers" className="my-3">
+            <tbody>
+              <tr>
+                <th>
+                  <FormattedMessage id="manage-user.email" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.first-name" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.last-name" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.gender" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.position" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.role-id" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.phone-number" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.address" />
+                </th>
+                <th>
+                  <FormattedMessage id="manage-user.btn-actions" />
+                </th>
+              </tr>
+
+              {arrUsers &&
+                arrUsers.length > 0 &&
+                arrUsers.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{item.email}</td>
+                      <td>{item.firstName}</td>
+                      <td>{item.lastName}</td>
+                      <td>{item.gender}</td>
+                      <td>{item.positionId}</td>
+                      <td>{item.roleId}</td>
+                      <td>{item.phonenumber}</td>
+                      <td>{item.address}</td>
+                      <td>
+                        <button
+                          className="btn-edit"
+                          onClick={() => this.handleEditUser(item)}
+                        >
+                          <i className="fas fa-pencil-alt"></i>
+                        </button>
+                        <button
+                          onClick={() => this.handleDeleteUser(item)}
+                          className="btn-delete"
+                        >
+                          <i className="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+
+          {/* <table id="customers">
             <tbody>
               <tr>
                 <th>Email</th>
@@ -182,7 +247,7 @@ class UserManage extends Component {
                   );
                 })}
             </tbody>
-          </table>
+          </table> */}
         </div>
       </div>
     );
