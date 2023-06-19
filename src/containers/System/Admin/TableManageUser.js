@@ -7,8 +7,6 @@ import { FormattedMessage } from "react-intl";
 import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
-import { render } from "react-dom";
-
 const mParser = new MarkdownIt();
 
 function handleEditorChange({ html, text }) {
@@ -113,12 +111,6 @@ class TableManageUser extends Component {
               })}
           </tbody>
         </table>
-
-        <MdEditor
-          style={{ height: "500px" }}
-          renderHTML={(text) => mParser.render(text)}
-          onChange={handleEditorChange}
-        />
       </React.Fragment>
     );
   }
