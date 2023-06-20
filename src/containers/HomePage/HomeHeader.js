@@ -4,12 +4,18 @@ import "./HomeHeader.scss";
 import logo from "../../assets/logo.svg";
 import { FormattedMessage } from "react-intl";
 import { LANGUAGES } from "../../utils";
-
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { changeLanguageApp } from "../../store/actions";
 
 class HomeHeader extends Component {
   changeLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
+  };
+
+  returnToHome = () => {
+    if (this.props.history) {
+      this.props.history.push(`/home`);
+    }
   };
 
   render() {
@@ -21,13 +27,17 @@ class HomeHeader extends Component {
           <div className="home-header-content">
             <div className="left-content">
               <i className="fas fa-bars"></i>
-              <img className="header-logo" src={logo}></img>
+              <img
+                className="header-logo"
+                src={logo}
+                onClick={() => this.returnToHome()}
+              ></img>
             </div>
             <div className="center-content">
               <div className="child-content">
                 <div>
                   <b>
-                    <FormattedMessage id="homeheader.speciality" />
+                    <FormattedMessage id="homeheader.specialty" />
                   </b>
                 </div>
                 <div className="subs-title">
@@ -96,6 +106,7 @@ class HomeHeader extends Component {
             </div>
           </div>
         </div>
+
         {this.props.isShowBanner === true && (
           <div className="home-header-banner">
             <div className="content-up">
@@ -183,4 +194,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomeHeader)
+);
