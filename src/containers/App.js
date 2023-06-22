@@ -24,6 +24,7 @@ import { CustomToastCloseButton } from "../components/CustomToast";
 import HomePage from "./HomePage/HomePage.js";
 
 import CustomScrollbars from "../components/CustomScrollbars";
+import Doctor from "../routes/DoctorRoute";
 
 class App extends Component {
   handlePersistorState = () => {
@@ -58,9 +59,14 @@ class App extends Component {
                     component={userIsNotAuthenticated(Login)}
                   />
                   <Route
+                    path={"/doctor/"}
+                    component={userIsAuthenticated(Doctor)}
+                  />
+                  <Route
                     path={path.SYSTEM}
                     component={userIsAuthenticated(System)}
                   />
+
                   <Route path={path.HOMEPAGE} component={HomePage} />
                   <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
                 </Switch>
@@ -81,8 +87,8 @@ class App extends Component {
 
             <ToastContainer
               position="bottom-right"
-              autoClose={5000}
-              hideProgressBar="false"
+              autoClose={2000}
+              hideProgressBar={false}
               newestOnTop={false}
               rtl={false}
               pauseOnFocusLoss
