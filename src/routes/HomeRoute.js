@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-class Home extends Component {
+class HomeRoute extends Component {
   render() {
     const { isLoggedIn } = this.props;
     let linkToRedirect = isLoggedIn ? "/system/user-manage" : "/home";
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeRoute);

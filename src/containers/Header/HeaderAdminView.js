@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import Navigator from "../../components/Navigator";
 import { adminMenu, doctorMenu } from "./menuApp";
-import "./Header.scss";
+import "./HeaderAdminView.scss";
 import { LANGUAGES, USER_ROLE } from "../../utils";
 import { FormattedMessage } from "react-intl";
 

@@ -32,7 +32,7 @@
       "crud-redux": "CRUD Redux",
       "clinic": "Phòng Khám",
       "manage-clinic": "Quản Lý Phòng Khám",
-      "specialty": "Quản Lý Chuyên Khoa",
+      "specialty": "Chuyên Khoa",
       "manage-specialty": "Quản Lý Chuyên Khoa",
       "handbook": "Cẩm Nang",
       "manage-handbook": "Quản Lý Cẩm Nang"
@@ -63,5 +63,11 @@
   "homepage": {
     "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
     "more-infor": "Xem thêm"
+  },
+  "manage-schedule": {
+    "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
+    "choose-doctor": "Chọn bác sĩ",
+    "choose-date": "Chọn ngày",
+    "save": "Lưu thông tin"
   }
 }

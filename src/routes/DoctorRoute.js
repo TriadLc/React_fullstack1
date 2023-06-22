@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import ManageSchedule from "../containers/System/Doctor/ManageSchedule";
-import Header from "../containers/Header/Header";
+import Header from "../containers/Header/HeaderAdminView";
 
 class DoctorRoute extends Component {
   render() {

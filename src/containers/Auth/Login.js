@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-// import * as actions from "../store/actions";
 import * as actions from "../../store/actions";
 
 import "./Login.scss";
 import { FormattedMessage } from "react-intl";
-// import { userService } from '../../services/userService';
 import { handleLoginApiService } from "../../services/userService";
 
-class Login extends Component {
+class LoginRoute extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,6 +28,12 @@ class Login extends Component {
     this.setState({
       password: e.target.value,
     });
+  };
+
+  handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.keyCode === 13) {
+      this.handleLogin();
+    }
   };
 
   handleLogin = async () => {
@@ -91,7 +95,8 @@ class Login extends Component {
                   className="form-control login-input"
                   placeholder="Enter your password"
                   value={this.state.password}
-                  onChange={(e) => this.handleOnChangePassword(e)}
+                  onChange={(event) => this.handleOnChangePassword(event)}
+                  onKeyDown={(event) => this.handleKeyDown(event)}
                 />
                 <span onClick={() => this.handleShowHidePassword()}>
                   <i
@@ -144,4 +149,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginRoute);

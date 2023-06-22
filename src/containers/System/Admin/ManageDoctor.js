@@ -30,7 +30,7 @@ class ManageDoctor extends Component {
     this.props.fetchAllDoctors();
   }
 
-  builDataInputSelect = (inputData) => {
+  buildDataInputSelect = (inputData) => {
     let result = [];
     let { language } = this.props;
 
@@ -46,15 +46,16 @@ class ManageDoctor extends Component {
       return result;
     }
   };
+
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.allDoctors !== this.props.allDoctors) {
-      let dataSelect = this.builDataInputSelect(this.props.allDoctors);
+      let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
       this.setState({
         listDoctors: dataSelect,
       });
     }
     if (prevProps.language !== this.props.language) {
-      let dataSelect = this.builDataInputSelect(this.props.allDoctors);
+      let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
       this.setState({
         listDoctors: dataSelect,
       });

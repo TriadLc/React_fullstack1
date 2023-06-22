@@ -13,12 +13,12 @@ import {
 
 import { path } from "../utils";
 
-import Home from "../routes/Home";
-// import Login from '../routes/Login';
+import Home from "../routes/HomeRoute";
+// import Login from '../routes/LoginRoute';
 import Login from "./Auth/Login";
 
-import Header from "./Header/Header";
-import System from "../routes/System";
+import Header from "./Header/HeaderAdminView";
+import System from "../routes/SystemRoute";
 
 import { CustomToastCloseButton } from "../components/CustomToast";
 import HomePage from "./HomePage/HomePage.js";
@@ -87,7 +87,7 @@ class App extends Component {
 
             <ToastContainer
               position="bottom-right"
-              autoClose={2000}
+              autoClose={3000}
               hideProgressBar={false}
               newestOnTop={false}
               rtl={false}

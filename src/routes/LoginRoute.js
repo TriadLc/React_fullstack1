@@ -7,12 +7,12 @@ import { KeyCodeUtils, LanguageUtils } from "../utils";
 
 import userIcon from "../../src/assets/images/user.svg";
 import passIcon from "../../src/assets/images/pass.svg";
-import "./Login.scss";
+import "./LoginRoute.scss";
 import { FormattedMessage } from "react-intl";
 
 import adminService from "../services/adminService";
 
-class Login extends Component {
+class LoginRoute extends Component {
   constructor(props) {
     super(props);
     this.btnLogin = React.createRef();
@@ -176,4 +176,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginRoute);
