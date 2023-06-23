@@ -10,8 +10,10 @@ import DatePicker from "../../../components/Input/DatePicker";
 import moment from "moment";
 import { FormattedDate } from "../../../components/Formating/FormattedDate";
 
-import _ from "lodash";
 import { toast } from "react-toastify";
+import _ from "lodash";
+import { saveBulkScheduleDoctorService } from "../../../services/userService";
+
 class ManageSchedule extends Component {
   constructor(props) {
     super(props);
@@ -89,7 +91,7 @@ class ManageSchedule extends Component {
     }
   };
 
-  handleSaveSchedule = () => {
+  handleSaveSchedule = async () => {
     let { rangeTime, selectedDoctor, currentDate } = this.state;
     let result = [];
 
@@ -97,12 +99,15 @@ class ManageSchedule extends Component {
       toast.error("Invalid date!");
       return;
     }
+
     if (selectedDoctor && _.isEmpty(selectedDoctor)) {
       toast.error("Invalid selected doctor!");
       return;
     }
 
-    let formattedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+    //let formattedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+
+    let formattedDate = new Date(currentDate).getTime();
 
     if (rangeTime && rangeTime.length > 0) {
       let selectedTime = rangeTime.filter((item) => item.isSelected === true);
@@ -111,7 +116,7 @@ class ManageSchedule extends Component {
           let object = {};
           object.doctorId = selectedDoctor.value;
           object.date = formattedDate;
-          object.time = schedule.keyMap;
+          object.timeType = schedule.keyMap;
           result.push(object);
         });
       } else {
@@ -119,11 +124,20 @@ class ManageSchedule extends Component {
         return;
       }
     }
-    console.log("HoiDanit chekc result: ", result);
+
+    let res = await saveBulkScheduleDoctorService({
+      arrSchedule: result,
+      doctorId: selectedDoctor.value,
+      formattedDate: formattedDate,
+    });
+    toast.success("Set schedule succeed!");
+
+    console.log("HoiDanit check res:saveBulkScheduleDoctorService: ", res);
+    console.log("HoiDanit check result: ", result);
   };
 
   render() {
-    console.log("HoiDanIt chekc state: ", this.state);
+    //console.log("HoiDanIt chekc state: ", this.state);
 
     let { rangeTime } = this.state;
     let { language } = this.props;

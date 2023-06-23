@@ -9,6 +9,8 @@ import { LANGUAGES } from "../../../utils";
 import { getDetailInforDoctorService } from "../../../services/userService";
 import HomeHeader from "../../HomePage/HomeHeader";
 import Lightbox from "react-image-lightbox";
+import DoctorSchedule from "./DoctorSchedule";
+
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -46,7 +48,7 @@ class DetailDoctor extends Component {
   };
 
   render() {
-    console.log("HoiDanIt check state: ", this.state);
+    //console.log("HoiDanIt check state: ", this.state);
 
     let { language } = this.props;
     let { detailDoctor } = this.state;
@@ -84,7 +86,16 @@ class DetailDoctor extends Component {
               </div>
             </div>
           </div>
-          <div className="schedule-doctor"></div>
+          <div className="schedule-doctor">
+            <div className="content-left">
+              <DoctorSchedule
+                doctorIdFromParent={
+                  detailDoctor && detailDoctor.id ? detailDoctor.id : -1
+                }
+              />
+            </div>
+            <div className="content-right"></div>
+          </div>
           <div className="detail-infor-doctor">
             {detailDoctor &&
               detailDoctor.Markdown &&
