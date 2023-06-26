@@ -43,14 +43,22 @@
   .more-infor {
     display: flex;
     gap: 15px;
-    padding-bottom: 15px;
+    padding: 10px 20px;
+    width: 100%;
 
-    .content-left {
-      width: 30%;
+    //border: 1px solid red;
+    min-height: 150px;
+
+    .more-infor-content-left {
+      width: 50%;
     }
 
-    .content-right {
-      width: 70%;
+    .more-infor-content-right {
+      width: 50%;
     }
+  }
+  .more-infor-extra {
+    //border: 1px solid blue;
+    padding: 10px 20px;
   }
 }

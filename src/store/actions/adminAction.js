@@ -296,3 +296,48 @@ export const fetchAllScheduleTime = () => {
     }
   };
 };
+
+export const getAllRequiredDoctorInfor = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({ type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_START });
+
+      let resPrice = await getAllCodeService("PRICE");
+      let resPayment = await getAllCodeService("PAYMENT");
+      let resProvince = await getAllCodeService("PROVINCE");
+
+      if (
+        resPrice &&
+        resPrice.errCode === 0 &&
+        resPayment &&
+        resPayment.errCode === 0 &&
+        resProvince &&
+        resProvince.errCode === 0
+      ) {
+        //toast.success("Save detail doctor's infor succeed~");
+        let data = {
+          resPrice: resPrice.data,
+          resPayment: resPayment.data,
+          resProvince: resProvince.data,
+        };
+        dispatch(fetchReqiredDoctorInforSuccess(data));
+      } else {
+        //toast.error("Save detail doctor's infor error AAAA!");
+        dispatch(fetchReqiredDoctorInforFailed());
+      }
+    } catch (e) {
+      //toast.error("Save detail doctor's infor error!");
+      dispatch(fetchReqiredDoctorInforFailed());
+      console.log("fetchReqiredDoctorInforFailed: ", e);
+    }
+  };
+};
+
+export const fetchReqiredDoctorInforSuccess = (allRequiredData) => ({
+  type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_SUCCESS,
+  data: allRequiredData,
+});
+
+export const fetchReqiredDoctorInforFailed = () => ({
+  type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_FAILED,
+});
