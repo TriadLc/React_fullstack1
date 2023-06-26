@@ -183,7 +183,7 @@ class ManageDoctor extends Component {
                 />
               </div>
 
-              <div className="col-3 form-group">
+              <div className="col-2 form-group">
                 <label>Doctor's ID</label>
                 <input
                   className="form-control"
@@ -271,32 +271,34 @@ class ManageDoctor extends Component {
             </div>
           </div>
 
-          <div className="col-11 mx-3 manage-doctor-editor">
+          <div className="col-12 my-4 manage-doctor-editor">
             <MdEditor
-              style={{ height: "400px" }}
+              style={{ height: "480px" }}
               renderHTML={(text) => mParser.render(text)}
               onChange={this.handleEditorChange}
               value={this.state.contentMarkdown}
             />
           </div>
-          <button
-            onClick={() => this.handleSaveContentMarkdown()}
-            className={
-              hasOldData === true
-                ? "save-content-doctor"
-                : "create-content-doctor"
-            }
-          >
-            {hasOldData === true ? (
-              <span>
-                <FormattedMessage id="admin.manage-doctor.save" />
-              </span>
-            ) : (
-              <span>
-                <FormattedMessage id="admin.manage-doctor.add" />
-              </span>
-            )}
-          </button>
+          <div className="col-12 text-center btn-control-doctor">
+            <button
+              onClick={() => this.handleSaveContentMarkdown()}
+              className={
+                hasOldData === true
+                  ? "btn btn-primary save-content-doctor"
+                  : "btn btn-primary create-content-doctor"
+              }
+            >
+              {hasOldData === true ? (
+                <span>
+                  <FormattedMessage id="admin.manage-doctor.save" />
+                </span>
+              ) : (
+                <span>
+                  <FormattedMessage id="admin.manage-doctor.add" />
+                </span>
+              )}
+            </button>
+          </div>
         </div>
       </React.Fragment>
     );

@@ -1,40 +1,97 @@
-.container {
-  width: 100%;
-  .container-up {
-    display: flex;
-    justify-content: space-between;
-    .row-left {
-      width: 75%;
-    }
-    .row-right {
-      width: 25%;
+.user-redux-container {
+  .title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #0071ba;
+  }
 
-      .preview-img-container {
-        .label-upload {
-          width: 58%;
-          padding: 5px;
-          border-radius: 5px;
-          background: #ddd;
+  .container {
+    width: 100%;
+
+    .container-up {
+      display: flex;
+      justify-content: space-between;
+      .row-left {
+        width: 75%;
+      }
+      .row-right {
+        width: 25%;
+
+        .preview-img-container {
+          .label-upload {
+            width: 58%;
+            padding: 5px;
+            border-radius: 5px;
+            background: #ddd;
+            cursor: pointer;
+            margin-left: 55px;
+
+            &:hover {
+              opacity: 0.9;
+            }
+
+            i {
+              padding: 0 10px 0 5px;
+            }
+          }
+
+          .preview-image {
+            height: 230px;
+            width: 98%;
+            border: 1px solid #ddd;
+            background: center center no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+
+    .container-mid {
+      .btn-control-user {
+        .btn-edit-user {
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 14px;
+          min-width: 135px;
+          min-height: 40px;
+          border-radius: 18px;
+          outline: none;
+          border: none;
+          padding: 10px;
+
+          background: #04aa6d;
           cursor: pointer;
-          margin-left: 55px;
+          color: white;
 
           &:hover {
             opacity: 0.9;
-          }
-
-          i {
-            padding: 0 10px 0 5px;
+            background-color: forestgreen;
           }
         }
 
-        .preview-image {
-          height: 230px;
-          width: 98%;
-          border: 1px solid #ddd;
-          background: center center no-repeat;
-          background-size: contain;
+        .btn-save-user {
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 14px;
+          min-width: 135px;
+          min-height: 40px;
+          border-radius: 18px;
+          outline: none;
+          border: none;
+          padding: 10px;
+          background: darkorange;
           cursor: pointer;
-          margin-bottom: 15px;
+
+          &:hover {
+            opacity: 0.9;
+            background-color: orangered;
+          }
         }
       }
     }

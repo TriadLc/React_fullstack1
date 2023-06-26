@@ -82,8 +82,8 @@
       "title": "Create more information doctor",
       "select-doctor": "Select doctor",
       "intro": "Introduction: ",
-      "add": "Create infor",
-      "save": "Save infor"
+      "add": "Create",
+      "save": "Update"
     }
   }
 }

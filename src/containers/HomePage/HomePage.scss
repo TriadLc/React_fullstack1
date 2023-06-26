@@ -6,7 +6,7 @@
   width: 44px;
   background: #fff !important;
   border: 2px solid #d7d7d7 !important;
-  border-radius: 5px;
+  border-radius: 12px;
 
   &:hover {
     background: #ececec !important;
@@ -27,7 +27,7 @@
   width: 44px;
   background: #fff !important;
   border: 2px solid #d7d7d7 !important;
-  border-radius: 5px;
+  border-radius: 12px;
 
   &:hover {
     background: #ececec !important;
@@ -66,12 +66,12 @@
 
         &.section-specialty {
           background-image: url("../../assets/specialty/co-xuong-khop.jpg");
-          border-radius: 7px;
+          border-radius: 12px;
         }
 
         &.section-medical-facility {
           background-image: url("../../assets/specialty/benh-vien-an-viet.jpg");
-          border-radius: 7px;
+          border-radius: 12px;
         }
 
         &.section-outstanding-doctor {
@@ -83,7 +83,7 @@
 
         &.section-handbook {
           background-image: url("../../assets/specialty/handbook.png");
-          border-radius: 7px;
+          border-radius: 12px;
         }
       }
     }
@@ -112,7 +112,7 @@
         float: right;
         padding: 10px 15px;
         border: none;
-        border-radius: 7px;
+        border-radius: 12px;
         outline: none;
         display: block;
         background: #ebebeb;
@@ -143,7 +143,7 @@
       border: 1px solid orange;
       padding: 20px;
       cursor: pointer;
-      border-radius: 7px;
+      border-radius: 12px;
     }
   }
 }

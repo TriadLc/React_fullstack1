@@ -395,22 +395,6 @@ class UserRedux extends Component {
                       })}
                   </select>
                 </div>
-                <div className="col-10 my-5">
-                  <button
-                    className={
-                      this.state.action === CRUD_ACTIONS.EDIT
-                        ? "btn btn-warning"
-                        : "btn btn-primary"
-                    }
-                    onClick={() => this.handleSaveUser()}
-                  >
-                    {this.state.action === CRUD_ACTIONS.EDIT ? (
-                      <FormattedMessage id="manage-user.btn-edit" />
-                    ) : (
-                      <FormattedMessage id="manage-user.btn-save" />
-                    )}
-                  </button>
-                </div>
               </div>
               <div className="row row-right">
                 <div className="col-12 my-4">
@@ -440,8 +424,26 @@ class UserRedux extends Component {
                 </div>
               </div>
             </div>
+            <div className="container-mid">
+              <div className="col-12 my-5 text-center btn-control-user">
+                <button
+                  className={
+                    this.state.action === CRUD_ACTIONS.EDIT
+                      ? "btn btn-warning btn-save-user"
+                      : "btn btn-primary btn-edit-user"
+                  }
+                  onClick={() => this.handleSaveUser()}
+                >
+                  {this.state.action === CRUD_ACTIONS.EDIT ? (
+                    <FormattedMessage id="manage-user.btn-edit" />
+                  ) : (
+                    <FormattedMessage id="manage-user.btn-save" />
+                  )}
+                </button>
+              </div>
+            </div>
             <div className="container-down">
-              <div className="col-12 mb-5">
+              <div className="col-12 my-5">
                 <TableManageUser
                   handleEditUserFromParentKey={this.handleEditUserFromParent}
                   action={this.state.action}
