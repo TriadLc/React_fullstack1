@@ -51,6 +51,9 @@ class TableManageUser extends Component {
           <tbody>
             <tr>
               <th>
+                <FormattedMessage id="manage-user.id" />
+              </th>
+              <th>
                 <FormattedMessage id="manage-user.email" />
               </th>
               <th>
@@ -84,15 +87,16 @@ class TableManageUser extends Component {
               arrUsers.map((item, index) => {
                 return (
                   <tr key={index}>
+                    <td id="row-tbl-id">{item.id}</td>
                     <td>{item.email}</td>
                     <td>{item.firstName}</td>
                     <td>{item.lastName}</td>
-                    <td>{item.gender}</td>
-                    <td>{item.positionId}</td>
-                    <td>{item.roleId}</td>
+                    <td id="row-tbl-gender">{item.gender}</td>
+                    <td id="row-tbl-position">{item.positionId}</td>
+                    <td id="row-tbl-role">{item.roleId}</td>
                     <td>{item.phonenumber}</td>
                     <td>{item.address}</td>
-                    <td>
+                    <td id="row-tbl-action">
                       <button
                         className="btn-edit"
                         onClick={() => this.handleEditUser(item)}

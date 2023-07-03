@@ -43,6 +43,7 @@
 
   "manage-user": {
     "add": "Add a new user",
+    "id": "ID",
     "email": "Email",
     "password": "Password",
     "first-name": "First name",
@@ -82,8 +83,15 @@
       "title": "Create more information doctor",
       "select-doctor": "Select doctor",
       "intro": "Introduction: ",
+      "id": "ID",
       "add": "Create",
-      "save": "Update"
+      "save": "Update",
+      "price": "Price",
+      "payment": "Payment",
+      "province": "Province",
+      "nameClinic": "Clinic's name",
+      "addressClinic": "Clinic's address",
+      "note": "About note"
     }
   }
 }

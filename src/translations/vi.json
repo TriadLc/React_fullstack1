@@ -44,6 +44,7 @@
 
   "manage-user": {
     "add": "Thêm mới người dùng",
+    "id": "ID",
     "email": "Email",
     "password": "Mật khẩu",
     "first-name": "Tên riêng",
@@ -83,8 +84,15 @@
       "title": "Tạo thêm thông tin bác sĩ",
       "select-doctor": "Chọn bác sĩ",
       "intro": "Thông tin giới thiệu: ",
+      "id": "ID",
       "add": "Tạo mới",
-      "save": "Cập nhật"
+      "save": "Cập nhật",
+      "price": "Giá khám bệnh",
+      "payment": "Thanh toán",
+      "province": "Tỉnh thành",
+      "nameClinic": "Tên phòng khám",
+      "addressClinic": "Địa chỉ phòng khám",
+      "note": "Ghi chú"
     }
   }
 }

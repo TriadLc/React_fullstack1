@@ -214,6 +214,7 @@ class UserRedux extends Component {
     let isGetGenders = this.props.isLoadingGender;
 
     let {
+      id,
       email,
       password,
       firstName,
@@ -230,8 +231,8 @@ class UserRedux extends Component {
       <div className="user-redux-container">
         <div className="title">Learn React-Redux || Convert</div>
         <div className="user-redux-body">
-          <div className="container">
-            <div className="container-up">
+          <div className="col-12 container">
+            <div className="col-11 container-up">
               <div className="row row-left">
                 <div className="col-12">
                   <FormattedMessage id="manage-user.add" />
@@ -239,6 +240,7 @@ class UserRedux extends Component {
                 <div className="col-12">
                   {isGetGenders === true ? "Loading genders" : ""}
                 </div>
+
                 <div className="col-7 mt-3">
                   <label>
                     <FormattedMessage id="manage-user.email" />
@@ -396,7 +398,7 @@ class UserRedux extends Component {
                   </select>
                 </div>
               </div>
-              <div className="row row-right">
+              <div className="row text-center row-right">
                 <div className="col-12 my-4">
                   <FormattedMessage id="manage-user.image" />
                 </div>
@@ -442,7 +444,7 @@ class UserRedux extends Component {
                 </button>
               </div>
             </div>
-            <div className="container-down">
+            <div className="col-12 container-down">
               <div className="col-12 my-5">
                 <TableManageUser
                   handleEditUserFromParentKey={this.handleEditUserFromParent}

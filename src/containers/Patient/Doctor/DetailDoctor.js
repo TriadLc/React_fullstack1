@@ -10,7 +10,7 @@ import { getDetailInforDoctorService } from "../../../services/userService";
 import HomeHeader from "../../HomePage/HomeHeader";
 import Lightbox from "react-image-lightbox";
 import DoctorSchedule from "./DoctorSchedule";
-
+import DoctorExtrainInfor from "./DoctorExtraInfor";
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
@@ -94,7 +94,11 @@ class DetailDoctor extends Component {
             <div className="content-left">
               <DoctorSchedule doctorIdFromParent={this.state.currentDoctorId} />
             </div>
-            <div className="content-right"></div>
+            <div className="content-right">
+              <DoctorExtrainInfor
+                doctorIdFromParent={this.state.currentDoctorId}
+              />
+            </div>
           </div>
           <div className="detail-infor-doctor">
             {detailDoctor &&

@@ -194,7 +194,7 @@ class ManageSchedule extends Component {
                   );
                 })}
             </div>
-            <div className="col-12">
+            <div className="col-12 text-center">
               <button
                 className="btn btn-primary btn-save-schedule"
                 onClick={() => this.handleSaveSchedule()}
