@@ -11,6 +11,7 @@ import moment, { months } from "moment";
 import localization from "moment/locale/vi";
 import { lang } from "moment/moment";
 import { escape } from "lodash";
+import BookingModal from "./Modal/BookingModal";
 
 class DoctorSchedule extends Component {
   constructor(props) {
@@ -18,6 +19,8 @@ class DoctorSchedule extends Component {
     this.state = {
       allDays: [],
       allAvailableTime: [],
+      isOpenModalBooking: false,
+      dataScheduleTimeModal: {},
     };
   }
 
@@ -115,15 +118,33 @@ class DoctorSchedule extends Component {
       //console.log("Check res schedule from react: ", res);
     }
   };
+  handleClickScheduleTime = (time) => {
+    this.setState({
+      isOpenModalBooking: true,
+      dataScheduleTimeModal: time,
+    });
+    console.log("Check time: ", time);
+  };
+
+  closeBookingClose = () => {
+    this.setState({
+      isOpenModalBooking: false,
+    });
+  };
 
   render() {
     //console.log("HoiDanIt check state: ", this.state);
 
-    let { allDays, allAvailableTime } = this.state;
-    let { language } = this.state;
+    let {
+      allDays,
+      allAvailableTime,
+      isOpenModalBooking,
+      dataScheduleTimeModal,
+    } = this.state;
+    let { language } = this.props;
 
     return (
-      <div>
+      <>
         <div className="doctor-schedule-container">
           <div className="all-schedule">
             <select onChange={(event) => this.handleOnChangeSelect(event)}>
@@ -161,6 +182,7 @@ class DoctorSchedule extends Component {
                           className={
                             language === LANGUAGES.VI ? "btn-vie" : "btn-en"
                           }
+                          onClick={() => this.handleClickScheduleTime(item)}
                         >
                           {timeDisplay}
                         </button>
@@ -183,7 +205,12 @@ class DoctorSchedule extends Component {
             </div>
           </div>
         </div>
-      </div>
+        <BookingModal
+          isOpenModal={isOpenModalBooking}
+          closeBookingClose={this.closeBookingClose}
+          dataTime={dataScheduleTimeModal}
+        />
+      </>
     );
   }
 }

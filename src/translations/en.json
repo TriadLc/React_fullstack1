@@ -76,8 +76,19 @@
       "no-schedule": "The doctor does not have an appointment during this time, please ",
       "choose": "Choose ",
       "book-free": " and book (free)"
+    },
+    "extra-infor-doctor": {
+      "text-address": "Address of examination",
+      "price": "Examination price: ",
+      "detail": "See details.",
+      "notification-addressClinic": "Clinic's address: ",
+      "notification-nameClinic": "Clinic's name: ",
+      "notification-note": "Notification: ",
+      "payment": "The patient can pay the cost in the form of: ",
+      "hide-price": "Hide price list."
     }
   },
+
   "admin": {
     "manage-doctor": {
       "title": "Create more information doctor",

@@ -7,6 +7,9 @@
     .text-address {
       text-transform: uppercase;
       color: #333;
+      //font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      font-size: 18px;
     }
 
     .name-clinic {
@@ -23,6 +26,13 @@
 
   .content-down {
     .short-infor {
+      .detail {
+        cursor: pointer;
+        color: rgb(38, 160, 231);
+      }
+      .currency {
+        margin: 0 5px;
+      }
       span {
         cursor: pointer;
         color: rgb(38, 160, 231);
@@ -40,19 +50,29 @@
 
       .price {
         padding-bottom: 5px;
+        font-size: 16px;
 
         .right {
           float: right;
+          color: rgb(38, 160, 231);
         }
       }
 
       .note {
+        font-style: italic;
+        margin: 5px;
       }
     }
     .payment {
       border: 1px solid #ddd;
       padding: 5px;
       background-color: #eee;
+
+      span {
+        font-weight: 600;
+        color: rgb(38, 160, 231);
+        font-size: 15px;
+      }
     }
 
     .hide-price {

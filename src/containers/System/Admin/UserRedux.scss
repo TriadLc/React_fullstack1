@@ -42,13 +42,19 @@
           }
 
           .preview-image {
-            height: 230px;
+            min-height: 230px;
             width: 98%;
             border: 1px solid #ddd;
             background: center center no-repeat;
             background-size: contain;
             cursor: pointer;
             margin-bottom: 15px;
+            border-radius: 50%;
+            -ms-zoom-animation: 1;
+
+            &:hover {
+              transform: scale(1.05);
+            }
           }
         }
       }

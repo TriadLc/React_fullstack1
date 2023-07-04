@@ -1,22 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import NumberFormat from "react-number-format";
+import { FormattedMessage } from "react-intl";
+
 import "./DoctorExtraInfor.scss";
 import { LANGUAGES } from "../../../utils";
-
+import { getExtraInforDoctorByIdService } from "../../../services/userService";
+import { lang } from "moment";
+import { concat } from "lodash";
 class DoctorExtrainInfor extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isShowDetailInfor: false,
+      extraInfor: {},
     };
   }
 
   async componentDidMount() {}
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  async componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.language !== prevProps.language) {
     }
+    if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
+      let res = await getExtraInforDoctorByIdService(
+        this.props.doctorIdFromParent
+      );
+      if (res && res.errCode === 0) {
+        this.setState({
+          extraInfor: res.data,
+        });
+      }
+    }
   }
+
   showHideDetailInfor = (status) => {
     this.setState({
       isShowDetailInfor: status,
@@ -24,45 +41,148 @@ class DoctorExtrainInfor extends Component {
   };
 
   render() {
-    let { isShowDetailInfor } = this.state;
+    let { isShowDetailInfor, extraInfor } = this.state;
+    let { language } = this.props;
 
+    console.log("Check state: ", this.state);
     return (
       <React.Fragment>
         <div className="doctor-extra-infor-container">
           <div className="content-up">
-            <div className="text-address">DIA CHI</div>
-            <div className="name-clinic">PHONG khám chuyên khoá</div>
+            <div className="text-address">
+              <FormattedMessage id="patient.extra-infor-doctor.text-address" />
+            </div>
+            <div className="name-clinic">
+              {extraInfor && extraInfor.nameClinic
+                ? concat(
+                    <FormattedMessage id="patient.extra-infor-doctor.notification-nameClinic" />,
+                    extraInfor.nameClinic
+                  )
+                : ""}
+            </div>
             <div className="detail-address">
-              207 Pho Hue - Hai Ba Trung - Ha Noi
+              {extraInfor && extraInfor.addressClinic
+                ? concat(
+                    <FormattedMessage id="patient.extra-infor-doctor.notification-addressClinic" />,
+                    extraInfor.addressClinic
+                  )
+                : ""}
             </div>
           </div>
           <div className="content-down">
             {isShowDetailInfor === false && (
               <div className="short-infor">
-                Gia kham: 250.000
-                <span onClick={() => this.showHideDetailInfor(true)}>
-                  Xem chi tiet
+                <FormattedMessage id="patient.extra-infor-doctor.price" />
+
+                {extraInfor &&
+                  extraInfor.priceTypeData &&
+                  language === LANGUAGES.VI && (
+                    <NumberFormat
+                      className="currency"
+                      value={extraInfor.priceTypeData.valueVi}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      suffix={" VND"}
+                    />
+                  )}
+                {extraInfor &&
+                  extraInfor.priceTypeData &&
+                  language === LANGUAGES.EN && (
+                    <NumberFormat
+                      className="currency"
+                      value={extraInfor.priceTypeData.valueVi}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      suffix={"$"}
+                    />
+                  )}
+                <hr />
+                <span
+                  className="detail"
+                  onClick={() => this.showHideDetailInfor(true)}
+                >
+                  <FormattedMessage id="patient.extra-infor-doctor.detail" />
                 </span>
               </div>
             )}
 
             {isShowDetailInfor === true && (
               <>
-                <div className="title-price">GIa kham: .</div>
+                <div className="title-price">
+                  <FormattedMessage id="patient.extra-infor-doctor.price" />
+                </div>
                 <div className="detail-infor">
                   <div className="price">
-                    <span className="left">Gia kham</span>
-                    <span className="right">250.000d</span>
+                    <span className="left">
+                      <FormattedMessage id="patient.extra-infor-doctor.price" />
+                    </span>
+                    <span className="right">
+                      {extraInfor &&
+                        extraInfor.priceTypeData &&
+                        language === LANGUAGES.VI && (
+                          <NumberFormat
+                            className="currency"
+                            value={extraInfor.priceTypeData.valueVi}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            suffix={" VND"}
+                          />
+                        )}
+                      {extraInfor &&
+                        extraInfor.priceTypeData &&
+                        language === LANGUAGES.EN && (
+                          <NumberFormat
+                            className="currency"
+                            value={extraInfor.priceTypeData.valueEn}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            suffix={"$"}
+                          />
+                        )}
+                    </span>
                   </div>
                   <div className="note">
-                    Duoc ua tien kham truoc khi dat kham
+                    <>
+                      <span>
+                        {extraInfor &&
+                        extraInfor.note &&
+                        language === LANGUAGES.VI
+                          ? concat(
+                              <FormattedMessage id="patient.extra-infor-doctor.notification-note" />,
+                              extraInfor.note
+                            )
+                          : ""}
+
+                        {extraInfor &&
+                        extraInfor.note &&
+                        language === LANGUAGES.EN
+                          ? concat(
+                              <FormattedMessage id="patient.extra-infor-doctor.notification-note" />,
+                              extraInfor.note
+                            )
+                          : ""}
+                      </span>
+                    </>
                   </div>
                   <div className="payment">
-                    Nguoi benh co the thanh toan bang
+                    <FormattedMessage id="patient.extra-infor-doctor.payment" />
+                    <span>
+                      {extraInfor &&
+                      extraInfor.paymentTypeData &&
+                      language === LANGUAGES.VI
+                        ? extraInfor.paymentTypeData.valueVi
+                        : ""}
+
+                      {extraInfor &&
+                      extraInfor.paymentTypeData &&
+                      language === LANGUAGES.EN
+                        ? extraInfor.paymentTypeData.valueEn
+                        : ""}
+                    </span>
                   </div>
                   <div className="hide-price">
                     <span onClick={() => this.showHideDetailInfor(false)}>
-                      An bang gia
+                      <FormattedMessage id="patient.extra-infor-doctor.hide-price" />
                     </span>
                   </div>
                 </div>

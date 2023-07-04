@@ -77,8 +77,19 @@
       "no-schedule": "Bác sĩ không có lịch trong thời gian này, vui lòng chọn thời gian khác!",
       "choose": "Chọn ",
       "book-free": " và đặt (miễn phí)"
+    },
+    "extra-infor-doctor": {
+      "text-address": "Thông tin và địa chỉ dịch vụ khám chữa bệnh",
+      "price": "Giá khám bệnh: ",
+      "detail": "Xem chi tiết.",
+      "notification-addressClinic": "- Địa chỉ phòng khám: ",
+      "notification-nameClinic": "- Tên phòng khám: ",
+      "notification-note": "- Ghi chú từ bác sĩ: ",
+      "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức: ",
+      "hide-price": "Ẩn bảng giá."
     }
   },
+
   "admin": {
     "manage-doctor": {
       "title": "Tạo thêm thông tin bác sĩ",

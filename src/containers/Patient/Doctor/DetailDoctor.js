@@ -11,6 +11,7 @@ import HomeHeader from "../../HomePage/HomeHeader";
 import Lightbox from "react-image-lightbox";
 import DoctorSchedule from "./DoctorSchedule";
 import DoctorExtrainInfor from "./DoctorExtraInfor";
+import HomeFooter from "../../HomePage/HomeFooter";
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
@@ -119,6 +120,7 @@ class DetailDoctor extends Component {
             onCloseRequest={() => this.setState({ isOpen: false })}
           />
         )}
+        {/* <HomeFooter /> */}
       </React.Fragment>
     );
   }
