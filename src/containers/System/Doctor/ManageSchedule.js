@@ -154,17 +154,28 @@ class ManageSchedule extends Component {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-6 form-group">
+            <div className="col-2 form-group">
+              <label>
+                <FormattedMessage id="manage-schedule.show-doctor-id" />
+              </label>
+              <input
+                className="form-control"
+                value={this.state.selectedDoctor.value}
+                disabled
+              />
+            </div>
+            <div className="col-5 form-group">
               <label>
                 <FormattedMessage id="manage-schedule.choose-doctor" />
               </label>
               <Select
+                className="form-group"
                 value={this.state.selectedDoctor}
                 onChange={this.handleChangeSelect}
                 options={this.state.listDoctors}
               />
             </div>
-            <div className="col-6 form-group">
+            <div className="col-3 form-group">
               <label>
                 <FormattedMessage id="manage-schedule.choose-date" />
               </label>

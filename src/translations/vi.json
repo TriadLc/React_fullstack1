@@ -67,6 +67,7 @@
   },
   "manage-schedule": {
     "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
+    "show-doctor-id": "ID",
     "choose-doctor": "Chọn bác sĩ",
     "choose-date": "Chọn ngày",
     "save": "Lưu thông tin"
@@ -87,6 +88,20 @@
       "notification-note": "- Ghi chú từ bác sĩ: ",
       "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức: ",
       "hide-price": "Ẩn bảng giá."
+    },
+    "booking-modal": {
+      "title": "Thông tin đặt lịch khám bệnh",
+      "fullName": "Họ và tên: ",
+      "phoneNumber": "Điện thoại: ",
+      "email": "Địa chỉ email: ",
+      "address": "Địa chỉ liên lạc: ",
+      "reason": "Lý do khám bệnh: ",
+      "birthday": "Ngày sinh: ",
+      "gender": "Giới tính: ",
+      "btnConfirm": "Xác nhận",
+      "btnCancel": "Huỷ bỏ",
+      "priceBooking": "Miễn phí đặt lịch",
+      "price": "Giá khám bệnh: "
     }
   },
 

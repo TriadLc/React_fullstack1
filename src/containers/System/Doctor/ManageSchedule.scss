@@ -9,45 +9,53 @@
     color: #0071ba;
   }
 
-  .pick-hour-container {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+  .container {
+    width: 100%;
+    .row {
+      .pick-hour-container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
 
-    button {
-      padding: 5px 15px;
-      border: 1px solid gray;
-    }
-  }
+        button {
+          padding: 10px 15px;
+          border: 1px solid gray;
+        }
+      }
 
-  .btn-schedule {
-    &.active {
-      background-color: orange;
-    }
-  }
+      .btn-schedule {
+        margin: 10px;
+        min-width: 240px;
+        background-color: beige;
+        &.active {
+          background-color: orange;
+        }
+      }
 
-  .btn-save-schedule {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 14px;
-    min-width: 135px;
-    min-height: 40px;
-    border-radius: 15px;
-    outline: none;
-    border: none;
-    padding: 10px;
+      .btn-save-schedule {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+        min-width: 135px;
+        min-height: 40px;
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        padding: 14px 22px;
 
-    margin-top: 20px;
+        margin-top: 20px;
 
-    background: #04aa6d;
-    cursor: pointer;
-    color: white;
+        background: #04aa6d;
+        cursor: pointer;
+        color: white;
 
-    &:hover {
-      opacity: 0.9;
-      background-color: forestgreen;
+        &:hover {
+          opacity: 0.9;
+          background-color: forestgreen;
+        }
+      }
     }
   }
 }

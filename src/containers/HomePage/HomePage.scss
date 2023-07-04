@@ -1,7 +1,7 @@
 // Reset slick slider css
 .slick-prev {
   left: -10px !important;
-  z-index: 1000 !important;
+  z-index: 100 !important;
   height: 48px;
   width: 44px;
   background: #fff !important;
@@ -22,7 +22,7 @@
 
 .slick-next {
   right: -10px !important;
-  z-index: 1000 !important;
+  z-index: 100 !important;
   height: 48px;
   width: 44px;
   background: #fff !important;
@@ -59,9 +59,12 @@
       .bg-image {
         width: 278px;
         height: 150px;
-        background-position: center center;
-        background-repeat: no-repeat;
         background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        // background-position: center center;
+        // background-repeat: no-repeat;
+        // background-size: cover;
         background-color: #eee;
 
         &.section-specialty {

@@ -60,6 +60,14 @@ const getExtraInforDoctorByIdService = (doctorId) => {
   return axios.get(`/api/get-extra-infor-doctor-by-id?doctorId=${doctorId}`);
 };
 
+const getProfileDoctorByIdService = (doctorId) => {
+  return axios.get(`/api/get-profile-doctor-by-id?doctorId=${doctorId}`);
+};
+
+const postPatientBookingAppointmentService = (data) => {
+  return axios.post(`/api/patient-book-appointment`, data);
+};
+
 export {
   handleLoginApiService,
   getAllUsersService,
@@ -74,4 +82,6 @@ export {
   saveBulkScheduleDoctorService,
   getScheduleDoctorByDateService,
   getExtraInforDoctorByIdService,
+  getProfileDoctorByIdService,
+  postPatientBookingAppointmentService,
 };
