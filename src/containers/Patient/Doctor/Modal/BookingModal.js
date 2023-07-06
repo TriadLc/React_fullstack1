@@ -12,6 +12,8 @@ import * as actions from "../../../../store/actions";
 import { LANGUAGES } from "../../../../utils";
 import { postPatientBookingAppointmentService } from "../../../../services/userService";
 import { toast } from "react-toastify";
+import moment, { months } from "moment";
+import { lang } from "moment/moment";
 
 class BookingModal extends Component {
   constructor(props) {
@@ -96,8 +98,43 @@ class BookingModal extends Component {
     });
   };
 
+  buildTimeBooking = (dataTime) => {
+    let { language } = this.props;
+    if (dataTime && !_.isEmpty(dataTime)) {
+      let time =
+        language === LANGUAGES.VI
+          ? dataTime.timeTypeData.valueVi
+          : dataTime.timeTypeData.valueEn;
+
+      let date =
+        language === LANGUAGES.VI
+          ? moment.unix(+dataTime.date / 1000).format("dddd - DD/MM/YYYY")
+          : moment
+              .unix(+dataTime.date / 1000)
+              .locale("en")
+              .format("dddd - DD/MM/YYYY");
+
+      return `${time} - ${date}`;
+    }
+    return ``;
+  };
+
+  buildDoctorName = (dataTime) => {
+    let { language } = this.props;
+    if (dataTime && !_.isEmpty(dataTime)) {
+      let name =
+        language === LANGUAGES.VI
+          ? `${dataTime.doctorData.lastName} ${dataTime.doctorData.firstName}`
+          : `${dataTime.doctorData.firstName} ${dataTime.doctorData.lastName}`;
+      return name;
+    }
+    return ``;
+  };
+
   handleConfirmBooking = async () => {
     let date = new Date(this.state.birthday).getTime();
+    let timeString = this.buildTimeBooking(this.props.dataTime);
+    let doctorName = this.buildTimeBooking(this.props.dataTime);
 
     let res = await postPatientBookingAppointmentService({
       fullName: this.state.fullName,
@@ -109,6 +146,10 @@ class BookingModal extends Component {
       selectedGender: this.state.selectedGender.value,
       doctorId: this.state.doctorId,
       timeType: this.state.timeType,
+
+      language: this.props.language,
+      timeString: timeString,
+      doctorName: doctorName,
     });
 
     if (res && res.errCode === 0) {
@@ -130,7 +171,7 @@ class BookingModal extends Component {
       <Modal
         isOpen={isOpenModal}
         className={"booking-modal-container"}
-        size="lg"
+        size="xl"
         centered
         //backdrop={true}
       >
@@ -155,7 +196,7 @@ class BookingModal extends Component {
             </div>
             {/* <div className="price">Gia kham: 500.000 VND</div> */}
             <div className="row">
-              <div className="col-6 form-group">
+              <div className="col-4 form-group">
                 <label>
                   <FormattedMessage id="patient.booking-modal.fullName" />
                 </label>
@@ -166,18 +207,7 @@ class BookingModal extends Component {
                   }
                 />
               </div>
-              <div className="col-6 form-group">
-                <label>
-                  <FormattedMessage id="patient.booking-modal.phoneNumber" />
-                </label>
-                <input
-                  className="form-control"
-                  onChange={(event) =>
-                    this.handleOnChangeInput(event, "phoneNumber")
-                  }
-                />
-              </div>
-              <div className="col-6 form-group">
+              <div className="col-4 form-group">
                 <label>
                   <FormattedMessage id="patient.booking-modal.email" />
                 </label>
@@ -186,7 +216,7 @@ class BookingModal extends Component {
                   onChange={(event) => this.handleOnChangeInput(event, "email")}
                 />
               </div>
-              <div className="col-6 form-group">
+              <div className="col-4 form-group">
                 <label>
                   <FormattedMessage id="patient.booking-modal.address" />
                 </label>
@@ -198,7 +228,19 @@ class BookingModal extends Component {
                 />
               </div>
 
-              <div className="col-6 form-group">
+              <div className="col-4 form-group">
+                <label>
+                  <FormattedMessage id="patient.booking-modal.phoneNumber" />
+                </label>
+                <input
+                  className="form-control"
+                  onChange={(event) =>
+                    this.handleOnChangeInput(event, "phoneNumber")
+                  }
+                />
+              </div>
+
+              <div className="col-4 form-group">
                 <label>
                   <FormattedMessage id="patient.booking-modal.birthday" />
                 </label>
@@ -208,7 +250,7 @@ class BookingModal extends Component {
                   value={this.state.birthday}
                 />
               </div>
-              <div className="col-6 form-group">
+              <div className="col-4 form-group">
                 <label>
                   <FormattedMessage id="patient.booking-modal.gender" />
                 </label>
@@ -225,10 +267,10 @@ class BookingModal extends Component {
                 </label>
                 <textarea
                   className="form-control"
+                  rows={3}
                   onChange={(event) =>
                     this.handleOnChangeInput(event, "reason")
                   }
-                  size={3}
                 />
               </div>
             </div>

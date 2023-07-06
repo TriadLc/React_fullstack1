@@ -112,8 +112,8 @@ class ProfileDoctor extends Component {
             </div>
           </div>
         </div>
-        <div className="price">
-          <FormattedMessage id="patient.booking-modal.priceBooking" />
+        <div className="outer-bg">
+          <FormattedMessage id="patient.booking-modal.notification-priceBooking" />
           {dataProfile &&
             dataProfile.Doctor_Infor &&
             language === LANGUAGES.VI && (

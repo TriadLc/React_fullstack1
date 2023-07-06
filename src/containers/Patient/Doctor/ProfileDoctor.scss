@@ -2,11 +2,10 @@
   .intro-doctor {
     display: flex;
     width: 100%;
-    margin: 3px;
 
     .content-left {
       width: 22%;
-      margin: 10px 15px;
+      margin: 5px 15px;
       width: 150px;
       height: 150px;
       border: 1px dotted #eee;
@@ -21,7 +20,7 @@
       width: calc(100% - 80px);
       display: flex;
       flex-direction: column;
-      margin: 10px 10px;
+      margin: 5px 10px;
       padding: 15px 15px;
 
       width: 74%;
@@ -35,5 +34,12 @@
         margin: 15px 0;
       }
     }
+  }
+
+  .price {
+    margin: 15px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: brown;
   }
 }
