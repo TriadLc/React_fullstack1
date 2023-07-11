@@ -47,7 +47,7 @@ class BookingModal extends Component {
         result.push(object);
       });
     }
-    console.log("Check result build genders: ", result);
+    //console.log("Check result build genders: ", result);
     return result;
   };
 
@@ -192,6 +192,8 @@ class BookingModal extends Component {
                 doctorId={doctorId}
                 isShowDescriptionDoctor={false}
                 dataTime={dataTime}
+                isShowLinkDetail={false}
+                isShowPrice={true}
               />
             </div>
             {/* <div className="price">Gia kham: 500.000 VND</div> */}

@@ -252,12 +252,15 @@ export const saveDetailDoctor = (data) => {
     try {
       let res = await saveDetailDoctorService(data);
       if (res && res.errCode === 0) {
-        toast.success("Save detail doctor's infor succeed~");
+        toast.success("Save detail doctor's infor SUCCEED~");
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
         });
       } else {
-        toast.error("Save detail doctor's infor error AAAA!");
+        //console.log("Show ErrCode: ", res.errCode);
+        //console.log("Show ErrMesage: ", res.errMessage);
+
+        toast.error("Save detail doctor's infor ERROR!");
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
         });
