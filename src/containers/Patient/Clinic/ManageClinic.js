@@ -1,24 +1,27 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
-import MarkdownIt from "markdown-it";
-import MdEditor from "react-markdown-editor-lite";
 import { toast } from "react-toastify";
 import Lightbox from "react-image-lightbox";
+import "./ManageClinic.scss";
 
 import { CommonUtils } from "../../../utils";
-import { createNewSpecialtyService } from "../../../services/userService";
-import "./ManageSpecialty.scss";
+import { createNewClinicService } from "../../../services/userService";
+import MarkdownIt from "markdown-it";
+import MdEditor from "react-markdown-editor-lite";
+import "react-markdown-editor-lite/lib/index.css";
 
 const mdParser = new MarkdownIt();
 
-class ManageSpecialty extends Component {
+class ManageClinic extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
       previewImgURL: "",
+
       name: "",
+      address: "",
       imageBase64: "",
       descriptionHTML: "",
       descriptionMarkdown: "",
@@ -68,10 +71,10 @@ class ManageSpecialty extends Component {
     });
   };
 
-  handleSaveNewSpecialty = async () => {
-    let res = await createNewSpecialtyService(this.state);
+  handleSaveNewClinic = async () => {
+    let res = await createNewClinicService(this.state);
     if (res && res.errCode === 0) {
-      toast.success("Add new specialty succeeds!");
+      toast.success("Add new clinic succeed~~");
       this.setState({
         name: "",
         imageBase64: "",
@@ -79,19 +82,19 @@ class ManageSpecialty extends Component {
         descriptionMarkdown: "",
       });
     } else {
-      toast.error("Something wrongs...!");
-      console.log("Toi check res: ", res);
+      toast.error("Something is wrongs....");
+      console.log("CHeck res from ManageClinic: ", res);
     }
   };
 
   render() {
     return (
-      <div className="manage-specialty-container">
-        <div className="ms-title">Quan ly chuyen khoa</div>
+      <div className="manage-clinic-container">
+        <div className="ms-title">Quan ly phong kham</div>
 
-        <div className="add-new-specialty row">
+        <div className="add-new-clinic row">
           <div className="col-5 form-group">
-            <label>Ten chuyen khoa: </label>
+            <label>Ten phong kham: </label>
             <input
               className="form-control"
               type="text"
@@ -100,7 +103,7 @@ class ManageSpecialty extends Component {
             />
           </div>
           <div className="col-3 form-group">
-            <label>Anh chuyen khoa: </label>
+            <label>Anh phong kham: </label>
             <input
               id="form-control-file"
               type="file"
@@ -114,6 +117,16 @@ class ManageSpecialty extends Component {
             }}
             onClick={() => this.openPreviewImage()}
           ></div>
+
+          <div className="col-5 form-group">
+            <label>Dia chi chuyen khoa: </label>
+            <input
+              className="form-control"
+              type="text"
+              onChange={(event) => this.handleOnChangeInput(event, "address")}
+              value={this.state.address}
+            />
+          </div>
           <div className="col-12 my-2">
             <MdEditor
               style={{ height: "300px" }}
@@ -124,8 +137,8 @@ class ManageSpecialty extends Component {
           </div>
           <div className="col-12 my-2">
             <button
-              className="btn-save-specialty"
-              onClick={() => this.handleSaveNewSpecialty()}
+              className="btn-save-clinic"
+              onClick={() => this.handleSaveNewClinic()}
             >
               Save ne
             </button>
@@ -152,4 +165,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageSpecialty);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageClinic);

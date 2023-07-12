@@ -6,7 +6,7 @@
   width: 44px;
   background: #fff !important;
   border: 2px solid #d7d7d7 !important;
-  border-radius: 12px;
+  border-radius: 20px;
 
   &:hover {
     background: #ececec !important;
@@ -27,7 +27,7 @@
   width: 44px;
   background: #fff !important;
   border: 2px solid #d7d7d7 !important;
-  border-radius: 12px;
+  border-radius: 20px;
 
   &:hover {
     background: #ececec !important;
@@ -57,11 +57,12 @@
       //max-width: 280px;
 
       .bg-image {
-        width: 278px;
+        width: 285px;
         height: 150px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+
         // background-position: center center;
         // background-repeat: no-repeat;
         // background-size: cover;
@@ -69,12 +70,13 @@
 
         &.section-specialty {
           //background-image: url("../../assets/specialty/co-xuong-khop.jpg");
-          border-radius: 12px;
+          border-radius: 33px;
         }
 
         &.section-medical-facility {
-          background-image: url("../../assets/specialty/benh-vien-an-viet.jpg");
-          border-radius: 12px;
+          //background-image: url("../../assets/specialty/benh-vien-an-viet.jpg");
+          border-radius: 33px;
+          border: 1px solid #eee;
         }
 
         &.section-outstanding-doctor {
@@ -86,7 +88,7 @@
 
         &.section-handbook {
           background-image: url("../../assets/specialty/handbook.png");
-          border-radius: 12px;
+          border-radius: 33px;
         }
       }
     }
@@ -115,7 +117,7 @@
         float: right;
         padding: 10px 15px;
         border: none;
-        border-radius: 12px;
+        border-radius: 33px;
         outline: none;
         display: block;
         background: #ebebeb;
@@ -146,7 +148,7 @@
       border: 1px solid #45c3d2;
       padding: 20px;
       cursor: pointer;
-      border-radius: 12px;
+      border-radius: 33px;
     }
   }
 }

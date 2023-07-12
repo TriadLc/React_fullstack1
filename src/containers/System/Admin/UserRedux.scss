@@ -45,8 +45,9 @@
             min-height: 230px;
             width: 98%;
             border: 1px solid #ddd;
-            background: center center no-repeat;
-            background-size: contain;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             cursor: pointer;
             margin-bottom: 15px;
             border-radius: 50%;

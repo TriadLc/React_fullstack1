@@ -86,6 +86,17 @@ const getAllDetailSpecialtyByIdService = (data) => {
   );
 };
 
+const getAllClinicService = () => {
+  return axios.get(`/api/get-all-clinic`);
+};
+const getDetailClinicByIdService = (data) => {
+  return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`, data);
+};
+
+const createNewClinicService = (data) => {
+  return axios.post(`/api/create-new-clinic`, data);
+};
+
 export {
   handleLoginApiService,
   getAllUsersService,
@@ -106,4 +117,7 @@ export {
   createNewSpecialtyService,
   getAllSpecialtyService,
   getAllDetailSpecialtyByIdService,
+  createNewClinicService,
+  getAllClinicService,
+  getDetailClinicByIdService,
 };

@@ -410,18 +410,21 @@ class UserRedux extends Component {
                         backgroundImage: `url(${this.state.previewImgURL})`,
                       }}
                       onClick={() => this.openPreviewImage()}
-                    >
-                      <input
-                        id="previewImg"
-                        type="file"
-                        hidden
-                        onChange={(event) => this.handleOnChangeImage(event)}
-                      />
-                    </div>
+                    ></div>
                     <label className="label-upload" htmlFor="previewImg">
                       <i className="fas fa-upload"></i>
                       <FormattedMessage id="manage-user.btn-upload-image" />
                     </label>
+                    <input
+                      id="previewImg"
+                      type="file"
+                      hidden
+                      onChange={(event) => this.handleOnChangeImage(event)}
+                    />##### **Từ nay, người bệnh có thể đặt lịch tại Trung tâm Khám sức khỏe định kỳ, Bệnh viện Trung ương Quân đội 108 thông qua hệ thống đặt khám BookingCare:**
+                    * Hỗ trợ đặt khám trực tuyến trước khi đi khám (miễn phí đặt lịch)
+                    * Lựa chọn gói khám từ cơ bản đến chuyên sâu theo nhu cầu
+                    * Được lựa chọn khám với Bác sĩ Chuyên khoa
+                    * Giảm thời gian chờ đợi: Không phải xếp hàng làm thủ tục khám và ưu tiên khám trước
                   </div>
                 </div>
               </div>
